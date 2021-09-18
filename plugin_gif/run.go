@@ -21,7 +21,7 @@ func init() { // 插件主体
 		DisableOnDefault: false,
 		Help:             "制图\n- " + strings.Join(a1, "\n- "),
 	})
-	engine.OnRegex(`^(` + strings.Join(a1, "|") + `)\D*?(\[CQ:(image.+?url=(.+)|at.+?(\d{5,11}))\].*|(\d+))$`).
+	engine.OnRegex(`^(` + strings.Join(a1, "|") + `)\D*?(\[CQ:(image,file=([0-9a-zA-Z]+).*?|at.+?(\d{5,11}))\].*|(\d+))$`).
 		SetBlock(true).SetPriority(20).Handle(func(ctx *zero.Ctx) {
 		c := newContext(ctx.Event.UserID)
 		list := ctx.State["regex_matched"].([]string)
@@ -66,7 +66,7 @@ func (c context) prepareLogos(s ...string) {
 	for i, v := range s {
 		_, err := strconv.Atoi(v)
 		if err != nil {
-			download(v, c.user+"yuan"+strconv.Itoa(i)+".gif")
+			download("https://gchat.qpic.cn/gchatpic_new//--"+strings.ToUpper(v)+"/0", c.user+"yuan"+strconv.Itoa(i)+".gif")
 		} else {
 			download("http://q4.qlogo.cn/g?b=qq&nk="+v+"&s=640", c.user+"yuan"+strconv.Itoa(i)+".gif")
 		}
