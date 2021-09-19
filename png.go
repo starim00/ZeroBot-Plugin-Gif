@@ -10,23 +10,23 @@ import (
 )
 
 // 爬
-func (cc context) pa() string {
+func (cc *context) pa() string {
 	tou := img.LoadFirstFrame(cc.imgs[0], 0, 0).Circle(0).Im
 	// 随机爬图序号
 	rand.Seed(time.Now().UnixNano())
 	rand := rand.Intn(60) + 1
-	dc := img.LoadFirstFrame(downloadPicture(`pa/`+strconv.Itoa(rand)+`.png`), 0, 0).
+	dc := img.LoadFirstFrame(dlpic(`pa/`+strconv.Itoa(rand)+`.png`), 0, 0).
 		InsertBottom(tou, 100, 100, 0, 400).Im
 	img.SavePng(dc, cc.user+`爬.png`)
 	return "file:///" + cc.user + `爬.png`
 }
 
 // 撕
-func (cc context) si() string {
+func (cc *context) si() string {
 	tou := img.LoadFirstFrame(cc.imgs[0], 0, 0).Im
 	im1 := img.Rotate(tou, 20, 380, 380)
 	im2 := img.Rotate(tou, -12, 380, 380)
-	dc := img.LoadFirstFrame(downloadPicture(`si/0.png`), 0, 0).
+	dc := img.LoadFirstFrame(dlpic(`si/0.png`), 0, 0).
 		InsertBottom(im1.Im, im1.W, im1.H, -3, 370).
 		InsertBottom(im2.Im, im2.W, im2.H, 653, 310).Im
 	img.SavePng(dc, cc.user+`撕.png`)
@@ -34,11 +34,11 @@ func (cc context) si() string {
 }
 
 // 一直
-func (cc context) yiZhi() string {
+func (cc *context) yiZhi() string {
 	tou := img.LoadAllFrames(cc.imgs[0], 0, 0)
 	var dc []*image.NRGBA
 	for _, v := range tou {
-		dc = append(dc, img.LoadFirstFrame(downloadPicture(`xiao/0.png`), 0, 0).
+		dc = append(dc, img.LoadFirstFrame(dlpic(`xiao/0.png`), 0, 0).
 			InsertUp(v, 249, 249, 0, 0).
 			InsertUp(v, 47, 47, 140, 250).Clone().Im,
 		)
@@ -48,7 +48,7 @@ func (cc context) yiZhi() string {
 }
 
 // 简单
-func (cc context) other(value ...string) string {
+func (cc *context) other(value ...string) string {
 	// 加载图片
 	im := img.LoadFirstFrame(cc.imgs[0], 0, 0)
 	var a *image.NRGBA
