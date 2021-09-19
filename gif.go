@@ -42,8 +42,8 @@ func (cc *context) cuo() string {
 func (cc *context) qiao() string {
 	tou := img.LoadFirstFrame(cc.imgs[0], 40, 40).Circle(0).Im
 	qiao := []*image.NRGBA{
-		img.LoadFirstFrame(dlpic(`qiao/0.png`), 0, 0).InsertBottom(tou, 40, 33, 57, 52).Im,
-		img.LoadFirstFrame(dlpic(`qiao/1.png`), 0, 0).InsertBottom(tou, 38, 36, 58, 50).Im,
+		img.LoadFirstFrame(dlpic(`qiao/0.png`), 0, 0).InsertUp(tou, 40, 33, 57, 52).Im,
+		img.LoadFirstFrame(dlpic(`qiao/1.png`), 0, 0).InsertUp(tou, 38, 36, 58, 50).Im,
 	}
 	img.SaveGif(img.MergeGif(1, qiao), cc.user+`敲.gif`)
 	return "file:///" + cc.user + `敲.gif`
@@ -68,12 +68,12 @@ func (cc *context) ceng() string {
 	tou := img.LoadFirstFrame(cc.imgs[0], 100, 100).Circle(0).Im
 	tou2 := img.LoadFirstFrame(cc.imgs[1], 100, 100).Circle(0).Im
 	ceng := []*image.NRGBA{
-		img.LoadFirstFrame(dlpic(`ceng/0.png`), 0, 0).InsertBottom(tou, 75, 77, 40, 88).InsertBottom(tou2, 77, 103, 102, 81).Im,
-		img.LoadFirstFrame(dlpic(`ceng/1.png`), 0, 0).InsertBottom(tou, 75, 77, 46, 100).InsertBottom(img.Rotate(tou2, 10, 62, 127).Im, 0, 0, 92, 40).Im,
-		img.LoadFirstFrame(dlpic(`ceng/2.png`), 0, 0).InsertBottom(tou, 75, 77, 67, 99).InsertBottom(tou2, 76, 117, 90, 8).Im,
-		img.LoadFirstFrame(dlpic(`ceng/3.png`), 0, 0).InsertBottom(tou, 75, 77, 52, 83).InsertBottom(img.Rotate(tou2, -40, 94, 94).Im, 0, 0, 53, -20).Im,
-		img.LoadFirstFrame(dlpic(`ceng/4.png`), 0, 0).InsertBottom(tou, 75, 77, 56, 110).InsertBottom(img.Rotate(tou2, -66, 132, 80).Im, 0, 0, 78, 40).Im,
-		img.LoadFirstFrame(dlpic(`ceng/5.png`), 0, 0).InsertBottom(tou, 75, 77, 62, 102).InsertBottom(tou2, 71, 100, 110, 94).Im,
+		img.LoadFirstFrame(dlpic(`ceng/0.png`), 0, 0).InsertUp(tou, 75, 77, 40, 88).InsertUp(tou2, 77, 103, 102, 81).Im,
+		img.LoadFirstFrame(dlpic(`ceng/1.png`), 0, 0).InsertUp(tou, 75, 77, 46, 100).InsertUp(img.Rotate(tou2, 10, 62, 127).Im, 0, 0, 92, 40).Im,
+		img.LoadFirstFrame(dlpic(`ceng/2.png`), 0, 0).InsertUp(tou, 75, 77, 67, 99).InsertUp(tou2, 76, 117, 90, 8).Im,
+		img.LoadFirstFrame(dlpic(`ceng/3.png`), 0, 0).InsertUp(tou, 75, 77, 52, 83).InsertUp(img.Rotate(tou2, -40, 94, 94).Im, 0, 0, 53, -20).Im,
+		img.LoadFirstFrame(dlpic(`ceng/4.png`), 0, 0).InsertUp(tou, 75, 77, 56, 110).InsertUp(img.Rotate(tou2, -66, 132, 80).Im, 0, 0, 78, 40).Im,
+		img.LoadFirstFrame(dlpic(`ceng/5.png`), 0, 0).InsertUp(tou, 75, 77, 62, 102).InsertUp(tou2, 71, 100, 110, 94).Im,
 	}
 	img.SaveGif(img.MergeGif(8, ceng), cc.user+`蹭.gif`)
 	// return "file:////" + cc.User + `蹭.gif`
@@ -109,8 +109,8 @@ func (cc *context) ken() string {
 func (cc *context) pai() string {
 	tou := img.LoadFirstFrame(cc.imgs[0], 30, 30).Circle(0).Im
 	pai := []*image.NRGBA{
-		img.LoadFirstFrame(dlpic(`pai/0.png`), 0, 0).InsertBottom(tou, 0, 0, 1, 47).Im,
-		img.LoadFirstFrame(dlpic(`pai/1.png`), 0, 0).InsertBottom(tou, 0, 0, 1, 67).Im,
+		img.LoadFirstFrame(dlpic(`pai/0.png`), 0, 0).InsertUp(tou, 0, 0, 1, 47).Im,
+		img.LoadFirstFrame(dlpic(`pai/1.png`), 0, 0).InsertUp(tou, 0, 0, 1, 67).Im,
 	}
 	img.SaveGif(img.MergeGif(1, pai), cc.user+`拍.gif`)
 	return "file:///" + cc.user + `拍.gif`
@@ -121,8 +121,8 @@ func (cc *context) pai() string {
 func (cc *context) chong() string {
 	tou := img.LoadFirstFrame(cc.imgs[0], 0, 0).Circle(0).Im
 	chong := []*image.NRGBA{
-		img.LoadFirstFrame(dlpic(`xqe/0.png`), 0, 0).InsertBottom(tou, 30, 30, 15, 53).Im,
-		img.LoadFirstFrame(dlpic(`xqe/1.png`), 0, 0).InsertBottom(tou, 30, 30, 40, 53).Im,
+		img.LoadFirstFrame(dlpic(`xqe/0.png`), 0, 0).InsertUp(tou, 30, 30, 15, 53).Im,
+		img.LoadFirstFrame(dlpic(`xqe/1.png`), 0, 0).InsertUp(tou, 30, 30, 40, 53).Im,
 	}
 	img.SaveGif(img.MergeGif(1, chong), cc.user+`冲.gif`)
 	return "file:///" + cc.user + `冲.gif`
@@ -133,14 +133,14 @@ func (cc *context) chong() string {
 func (cc *context) diu() string {
 	tou := img.LoadFirstFrame(cc.imgs[0], 0, 0).Circle(0).Im
 	diu := []*image.NRGBA{
-		img.LoadFirstFrame(dlpic(`diu/0.png`), 0, 0).InsertBottom(tou, 32, 32, 108, 36).Im,
-		img.LoadFirstFrame(dlpic(`diu/1.png`), 0, 0).InsertBottom(tou, 32, 32, 122, 36).Im,
+		img.LoadFirstFrame(dlpic(`diu/0.png`), 0, 0).InsertUp(tou, 32, 32, 108, 36).Im,
+		img.LoadFirstFrame(dlpic(`diu/1.png`), 0, 0).InsertUp(tou, 32, 32, 122, 36).Im,
 		img.LoadFirstFrame(dlpic(`diu/2.png`), 0, 0).Im,
-		img.LoadFirstFrame(dlpic(`diu/3.png`), 0, 0).InsertBottom(tou, 123, 123, 19, 129).Im,
-		img.LoadFirstFrame(dlpic(`diu/4.png`), 0, 0).InsertBottom(tou, 185, 185, -50, 200).InsertBottom(tou, 33, 33, 289, 70).Im,
-		img.LoadFirstFrame(dlpic(`diu/5.png`), 0, 0).InsertBottom(tou, 32, 32, 280, 73).Im,
-		img.LoadFirstFrame(dlpic(`diu/6.png`), 0, 0).InsertBottom(tou, 35, 35, 259, 31).Im,
-		img.LoadFirstFrame(dlpic(`diu/7.png`), 0, 0).InsertBottom(tou, 175, 175, -50, 220).Im,
+		img.LoadFirstFrame(dlpic(`diu/3.png`), 0, 0).InsertUp(tou, 123, 123, 19, 129).Im,
+		img.LoadFirstFrame(dlpic(`diu/4.png`), 0, 0).InsertUp(tou, 185, 185, -50, 200).InsertUp(tou, 33, 33, 289, 70).Im,
+		img.LoadFirstFrame(dlpic(`diu/5.png`), 0, 0).InsertUp(tou, 32, 32, 280, 73).Im,
+		img.LoadFirstFrame(dlpic(`diu/6.png`), 0, 0).InsertUp(tou, 35, 35, 259, 31).Im,
+		img.LoadFirstFrame(dlpic(`diu/7.png`), 0, 0).InsertUp(tou, 175, 175, -50, 220).Im,
 	}
 	img.SaveGif(img.MergeGif(7, diu), cc.user+`丢.gif`)
 	return "file:///" + cc.user + `丢.gif`
