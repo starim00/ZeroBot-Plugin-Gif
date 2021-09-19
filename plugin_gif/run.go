@@ -21,7 +21,7 @@ func init() { // 插件主体
 		DisableOnDefault: false,
 		Help:             "制图\n- " + strings.Join(a1, "\n- "),
 	})
-	engine.OnRegex(`^(` + strings.Join(a1, "|") + `)\D*?(\[CQ:(image,file=([0-9a-zA-Z]+).*?|at.+?(\d{5,11}))\].*|(\d+))$`).
+	engine.OnRegex(`^(` + strings.Join(a1, "|") + `)\D*?(\[CQ:(image\,file=([0-9a-zA-Z]+).*?|at.+?(\d{5,11}))\].*|(\d+))$`).
 		SetBlock(true).SetPriority(20).Handle(func(ctx *zero.Ctx) {
 		c := newContext(ctx.Event.UserID)
 		list := ctx.State["regex_matched"].([]string)
