@@ -11,23 +11,23 @@ import (
 )
 
 type context struct {
-	folder string
-	user   string
-	imgs   []string
+	user string
+	imgs []string
 }
 
 func downloadPicture(name string) string {
-	_, err := os.Stat(`data/image/sucai/` + name)
+	target := `data/gif/materials/` + name
+	_, err := os.Stat(target)
 	if err != nil {
 		download(`https://codechina.csdn.net/u011570312/imagematerials/-/raw/main/`+name, `data/image/sucai/`+name)
 	}
-	return `data/image/sucai/` + name
+	return target
 }
 
 // 新的上下文
 func newContext(user int64) context {
 	var c context
-	c.user = `data/image/user/` + strconv.FormatInt(user, 10) + `/`
+	c.user = datapath + strconv.FormatInt(user, 10) + `/`
 	os.MkdirAll(c.user, 0755)
 	c.imgs = make([]string, 2)
 	c.imgs[0] = c.user + "yuan0.gif"

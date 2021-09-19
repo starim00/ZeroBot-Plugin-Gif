@@ -2,6 +2,8 @@ github.com/FloatTech/AnimeAPI v1.1.9/go.mod h1:CC+vF30UGBlcIUxwFOcXIEHoJ4r7c5x2i
 github.com/FloatTech/ZeroBot-Plugin v1.1.5 h1:f3os0vkuU1CpWs4PExJjZ8w7lA3XIVFCuZhXX9gBqpU=
 github.com/FloatTech/ZeroBot-Plugin v1.1.5/go.mod h1:kWuUARvU7gs4xLggi8Sy37ja2GRL6k0X6kewe5TiZRs=
 github.com/FloatTech/ZeroBot-Plugin-Timer v1.4.3/go.mod h1:MVOQQ4e6AVGFm993blXXU4Sd6bAsLY2+Zb+/HMrEeEc=
+github.com/FloatTech/imgfactory v0.1.0 h1:MXEVNgMIkbwvp3Mh+kqkzEslGIgDOHpfwetInbiCH64=
+github.com/FloatTech/imgfactory v0.1.0/go.mod h1:ThDALab8aOuU6KVYESVWFqmjcqtm03e0SvGlTw6s+aw=
 github.com/StackExchange/wmi v1.2.1/go.mod h1:rcmrprowKIVzvc+NUiLncP2uuArMWLCbu9SBzvHz7e8=
 github.com/antchfx/htmlquery v1.2.3/go.mod h1:B0ABL+F5irhhMWg54ymEZinzMSi0Kt3I2if0BLYa3V0=
 github.com/antchfx/xpath v1.1.6/go.mod h1:Yee4kTMuNiPYJ7nSNorELQMr1J33uOpXDMByNYhvtNk=
@@ -29,7 +31,6 @@ github.com/google/go-cmp v0.5.3/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/
 github.com/google/go-cmp v0.5.5 h1:Khx7svrCpmxxtHBq5j2mp/xVjsi8hQMfNLvJFAlrGgU=
 github.com/google/go-cmp v0.5.5/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
 github.com/google/gofuzz v1.0.0/go.mod h1:dBl0BpW6vV/+mYPU4Po3pmUjxk6FQPldtuIdl/M65Eg=
-github.com/gorilla/websocket v1.4.2 h1:+/TMaTYc4QFitKJxsQ7Yye35DkWvkdLcvGKqM+x0Ufc=
 github.com/gorilla/websocket v1.4.2/go.mod h1:YR8l580nyteQvAITg2hZ9XVh4b55+EU/adAjf1fMHhE=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
 github.com/imroc/req v0.3.0/go.mod h1:F+NZ+2EFSo6EFXdeIbpfE9hcC233id70kf0byW97Caw=
@@ -66,9 +67,7 @@ github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UV
 github.com/stretchr/testify v1.7.0 h1:nwc3DEeHmmLAfoZucVR881uASk0Mfjw8xYJ99tb5CcY=
 github.com/stretchr/testify v1.7.0/go.mod h1:6Fq8oRcR53rry900zMqJjRRixrwX3KX962/h/Wwjteg=
 github.com/syndtr/goleveldb v1.0.0/go.mod h1:ZVVdQEZoIme9iO1Ch2Jdy24qqXrMMOU6lpPAyBWyWuQ=
-github.com/t-tomalak/logrus-easy-formatter v0.0.0-20190827215021-c074f06c5816 h1:J6v8awz+me+xeb/cUTotKgceAYouhIB3pjzgRd6IlGk=
 github.com/t-tomalak/logrus-easy-formatter v0.0.0-20190827215021-c074f06c5816/go.mod h1:tzym/CEb5jnFI+Q0k4Qq3+LvRF4gO3E2pxS8fHP8jcA=
-github.com/tdf1939/ZeroBot-Plugin-Gif v0.0.0-20210828060956-389b1dc33652 h1:ZMZGgo6hboOetoExFZBecloH1zmQYJlWQWuhCeR0FiY=
 github.com/tdf1939/ZeroBot-Plugin-Gif v0.0.0-20210828060956-389b1dc33652/go.mod h1:bkxKi7un9gCDvUUZAiIJF6k90pyj8rmxiXLJkiHcsMY=
 github.com/tdf1939/img v0.0.0-20210827153520-90cb4e9580a3 h1:DUQxv4Ua1sb0/zOkExNJ/MSJcSnbZ7WT9thXCPWTh5U=
 github.com/tdf1939/img v0.0.0-20210827153520-90cb4e9580a3/go.mod h1:FgTEOcosTWrkOr7++gbtPSj1rX5loRWrf/AL+hm3Cnw=
