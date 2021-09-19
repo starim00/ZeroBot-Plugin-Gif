@@ -34,7 +34,7 @@ func (cc *context) si() string {
 }
 
 // 一直
-func (cc *context) yiZhi() string {
+func (cc *context) yizhi() string {
 	tou := img.LoadAllFrames(cc.imgs[0], 0, 0)
 	var dc []*image.NRGBA
 	for _, v := range tou {

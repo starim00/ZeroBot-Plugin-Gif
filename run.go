@@ -18,14 +18,11 @@ var (
 	datapath   = botpath + "/data/gif/"
 )
 
-// var a2 = []string{"旋转", "变形"}
-
 func init() { // 插件主体
-	engine := control.Register("gif", &control.Options{
+	control.Register("gif", &control.Options{
 		DisableOnDefault: false,
 		Help:             "制图\n- " + strings.Join(cmds, "\n- "),
-	})
-	engine.OnRegex(`^(` + strings.Join(cmds, "|") + `)\D*?(\[CQ:(image\,file=([0-9a-zA-Z]+).*?|at.+?(\d{5,11}))\].*|(\d+))$`).
+	}).OnRegex(`^(` + strings.Join(cmds, "|") + `)\D*?(\[CQ:(image\,file=([0-9a-zA-Z]+).*?|at.+?(\d{5,11}))\].*|(\d+))$`).
 		SetBlock(true).SetPriority(20).Handle(func(ctx *zero.Ctx) {
 		c := newContext(ctx.Event.UserID)
 		list := ctx.State["regex_matched"].([]string)
@@ -55,7 +52,7 @@ func init() { // 插件主体
 		case "冲":
 			picurl = c.chong()
 		case "一直":
-			picurl = c.yiZhi()
+			picurl = c.yizhi()
 		default:
 			picurl = c.other(list[1]) // "灰度", "上翻", "下翻", "左翻", "右翻", "反色", "倒放", "浮雕", "打码", "负片"
 		}
