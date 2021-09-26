@@ -22,7 +22,7 @@ func init() { // 插件主体
 	control.Register("gif", &control.Options{
 		DisableOnDefault: false,
 		Help:             "制图\n- " + strings.Join(cmds, "\n- "),
-	}).OnRegex(`^(` + strings.Join(cmds, "|") + `)\D*?(\[CQ:(image\,file=([0-9a-zA-Z]+).*?|at.+?(\d{5,11}))\].*|(\d+))$`).
+	}).OnRegex(`^(` + strings.Join(a1, "|") + `)\D*?(\[CQ:(image\,file=([0-9a-zA-Z]{32}).*|at.+?(\d{5,11}))\].*|(\d+))$`).
 		SetBlock(true).SetPriority(20).Handle(func(ctx *zero.Ctx) {
 		c := newContext(ctx.Event.UserID)
 		list := ctx.State["regex_matched"].([]string)
