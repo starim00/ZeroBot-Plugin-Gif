@@ -19,7 +19,7 @@ type context struct {
 func dlchan(name string, c *chan *string) {
 	target := datapath + `materials/` + name
 	_, err := os.Stat(target)
-	if err != nil && os.IsNotExist(err) {
+	if err != nil {
 		download(`https://codechina.csdn.net/u011570312/imagematerials/-/raw/main/`+name, target)
 	} else {
 		logrus.Debugln("[gif] dl", name, "exists")
@@ -30,7 +30,7 @@ func dlchan(name string, c *chan *string) {
 func dlblock(name string) string {
 	target := datapath + `materials/` + name
 	_, err := os.Stat(target)
-	if err != nil && os.IsNotExist(err) {
+	if err != nil {
 		download(`https://codechina.csdn.net/u011570312/imagematerials/-/raw/main/`+name, target)
 	}
 	return target
