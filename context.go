@@ -16,13 +16,13 @@ type context struct {
 	headimgsdir []string
 }
 
-func dlchan(name string, c *chan string) {
+func dlchan(name string, c *chan *string) {
 	target := datapath + `materials/` + name
 	_, err := os.Stat(target)
 	if err != nil && os.IsNotExist(err) {
 		download(`https://codechina.csdn.net/u011570312/imagematerials/-/raw/main/`+name, target)
 	}
-	*c <- target
+	*c <- &target
 }
 
 func dlblock(name string) string {
@@ -34,8 +34,8 @@ func dlblock(name string) string {
 	return target
 }
 
-func dlrange(prefix string, suffix string, end int) *[]chan string {
-	c := make([]chan string, end)
+func dlrange(prefix string, suffix string, end int) *[]chan *string {
+	c := make([]chan *string, end)
 	for i, ch := range c {
 		go dlchan(prefix+strconv.Itoa(i)+suffix, &ch)
 	}

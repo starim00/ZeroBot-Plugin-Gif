@@ -4,6 +4,8 @@ import (
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/sirupsen/logrus"
 )
 
 func (c *context) prepareLogos(s ...string) {
@@ -20,5 +22,7 @@ func (c *context) prepareLogos(s ...string) {
 func (c *context) exists(name string) bool {
 	file := c.usrdir + name
 	_, err := os.Stat(file)
-	return err == nil || os.IsExist(err)
+	e := err == nil || os.IsExist(err)
+	logrus.Debugln("[gif]", name, "exists:", e)
+	return e
 }
