@@ -21,6 +21,8 @@ func dlchan(name string, c *chan *string) {
 	_, err := os.Stat(target)
 	if err != nil && os.IsNotExist(err) {
 		download(`https://codechina.csdn.net/u011570312/imagematerials/-/raw/main/`+name, target)
+	} else {
+		logrus.Debugln("[gif] dl", name, "exists")
 	}
 	*c <- &target
 }
@@ -36,8 +38,9 @@ func dlblock(name string) string {
 
 func dlrange(prefix string, suffix string, end int) *[]chan *string {
 	c := make([]chan *string, end)
-	for i, ch := range c {
-		go dlchan(prefix+strconv.Itoa(i)+suffix, &ch)
+	for i := range c {
+		c[i] = make(chan *string)
+		go dlchan(prefix+strconv.Itoa(i)+suffix, &c[i])
 	}
 	return &c
 }
@@ -83,6 +86,6 @@ func download(url, dlpath string) error {
 		return err
 	}
 	res.Body.Close()
-	logrus.Info("[gif] dl len:", written)
+	logrus.Debugln("[gif] dl len:", written)
 	return nil
 }
