@@ -2,9 +2,11 @@
 package plugin_gif
 
 import (
+	"math/rand"
 	"os"
 	"strconv"
 	"strings"
+	"time"
 
 	"github.com/FloatTech/ZeroBot-Plugin/control"
 	zero "github.com/wdvxdr1123/ZeroBot"
@@ -12,13 +14,15 @@ import (
 )
 
 var (
-	cmds = []string{"搓", "冲", "摸", "拍", "丢", "吃", "敲", "啃", "蹭", "爬", "撕", "一直",
+	cmds = []string{"搓", "冲", "摸", "拍", "丢", "吃", "敲", "啃", "蹭", "爬", "撕",
 		"灰度", "上翻", "下翻", "左翻", "右翻", "反色", "浮雕", "打码", "负片"}
 	botpath, _ = os.Getwd()
 	datapath   = botpath + "/data/gif/"
 )
 
 func init() { // 插件主体
+	os.RemoveAll(datapath)           // 清除缓存图片
+	rand.Seed(time.Now().UnixNano()) // 设置种子
 	control.Register("gif", &control.Options{
 		DisableOnDefault: false,
 		Help:             "制图\n- " + strings.Join(cmds, "\n- "),
@@ -51,8 +55,6 @@ func init() { // 插件主体
 			picurl = c.si()
 		case "冲":
 			picurl = c.chong()
-		case "一直":
-			picurl = c.yizhi()
 		default:
 			picurl = c.other(list[1]) // "灰度", "上翻", "下翻", "左翻", "右翻", "反色", "倒放", "浮雕", "打码", "负片"
 		}

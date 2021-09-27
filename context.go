@@ -12,27 +12,44 @@ import (
 )
 
 type context struct {
-	user string
-	imgs []string
+	usrdir      string
+	headimgsdir []string
 }
 
-func dlpic(name string) string {
+func dlchan(name string, c *chan string) {
 	target := datapath + `materials/` + name
 	_, err := os.Stat(target)
-	if err != nil {
+	if err != nil && os.IsNotExist(err) {
+		download(`https://codechina.csdn.net/u011570312/imagematerials/-/raw/main/`+name, target)
+	}
+	*c <- target
+}
+
+func dlblock(name string) string {
+	target := datapath + `materials/` + name
+	_, err := os.Stat(target)
+	if err != nil && os.IsNotExist(err) {
 		download(`https://codechina.csdn.net/u011570312/imagematerials/-/raw/main/`+name, target)
 	}
 	return target
 }
 
+func dlrange(prefix string, suffix string, end int) *[]chan string {
+	c := make([]chan string, end)
+	for i, ch := range c {
+		go dlchan(prefix+strconv.Itoa(i)+suffix, &ch)
+	}
+	return &c
+}
+
 // 新的上下文
 func newContext(user int64) *context {
 	c := new(context)
-	c.user = datapath + strconv.FormatInt(user, 10) + `/`
-	os.MkdirAll(c.user, 0755)
-	c.imgs = make([]string, 2)
-	c.imgs[0] = c.user + "yuan0.gif"
-	c.imgs[1] = c.user + "yuan1.gif"
+	c.usrdir = datapath + "users/" + strconv.FormatInt(user, 10) + `/`
+	os.MkdirAll(c.usrdir, 0755)
+	c.headimgsdir = make([]string, 2)
+	c.headimgsdir[0] = c.usrdir + "0.gif"
+	c.headimgsdir[1] = c.usrdir + "1.gif"
 	return c
 }
 
