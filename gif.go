@@ -1,9 +1,12 @@
 package plugin_gif
 
 import (
-	"image"
-
 	img "github.com/FloatTech/imgfactory"
+	"image"
+	"image/color/palette"
+	"image/draw"
+	"image/gif"
+	"os"
 )
 
 // 摸
@@ -156,5 +159,26 @@ func (cc *context) diu() string {
 		img.LoadFirstFrame(*<-(*c)[7], 0, 0).InsertUp(tou, 175, 175, -50, 220).Im,
 	}
 	img.SaveGif(img.MergeGif(7, diu), name)
+	return "file:///" + name
+}
+
+func (cc *context) DaoFang() string {
+	anim := gif.GIF{}
+	f, err := os.Open(cc.headimgsdir[0])
+	if err != nil {
+		return ""
+	}
+	defer f.Close()
+	myGif, _, _ := image.Decode(f)
+
+	paletted := image.NewPaletted(myGif.Bounds(), palette.Plan9)
+	draw.FloydSteinberg.Draw(paletted, myGif.Bounds(), myGif, image.ZP)
+
+	anim.Image = append(anim.Image, paletted)
+	anim.Delay = append(anim.Delay, 75)
+	name := cc.usrdir + `倒放.gif`
+	output, _ := os.Create(name)
+	defer f.Close()
+	gif.EncodeAll(output, &anim)
 	return "file:///" + name
 }
